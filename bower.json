@@ -1,6 +1,6 @@
 {
   "name": "angle-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/fczbkk/angle-js",
   "author": "Riki Fridrich <riki@fczbkk.com> (https://github.com/fczbkk)",
   "description": "Simple JavaScript library for working with angles.",
