@@ -1,0 +1,27 @@
+{
+  "title": "Angle JS",
+  "name": "angle-js",
+  "version": "0.1.0",
+  "description": "Simple JavaScript library for working with angles.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fczbkk/angle-js.git"
+  },
+  "author": "Riki Fridrich <riki@fczbkk.com> (https://github.com/fczbkk)",
+  "license": "UNLICENSE",
+  "bugs": {
+    "url": "https://github.com/fczbkk/angle-js/issues"
+  },
+  "homepage": "https://github.com/fczbkk/angle-js",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-coffeelint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-jasmine": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-bump": "*",
+    
+    "load-grunt-tasks": "*"
+  }
+}
