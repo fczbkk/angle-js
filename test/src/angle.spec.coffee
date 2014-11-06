@@ -27,12 +27,12 @@ describe 'Angle', ->
   describe 'DEG-RAD conversion', ->
 
     it 'should convert from DEG to RAD', ->
-      expect(a.radToDeg 0).toEqual 0
-      expect(a.radToDeg Math.PI).toEqual 180
+      expect(a.fromRad 0).toEqual 0
+      expect(a.fromRad Math.PI).toEqual 180
 
     it 'should convert from RAD to DEG', ->
-      expect(a.degToRad 0).toEqual 0
-      expect(a.degToRad 180).toEqual Math.PI
+      expect(a.toRad 0).toEqual 0
+      expect(a.toRad 180).toEqual Math.PI
 
 
   describe 'normalization', ->

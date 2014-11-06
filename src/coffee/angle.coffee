@@ -21,11 +21,11 @@ class Angle
 
 
   # convert value from radians to degrees
-  radToDeg: (angle) -> angle * (180 / Math.PI)
+  fromRad: (angle) -> angle * (180 / Math.PI)
 
 
   # convert value from degrees to radians
-  degToRad: (angle) -> angle * (Math.PI / 180)
+  toRad: (angle) -> angle * (Math.PI / 180)
 
 
   # Moves angle into range between 0 and 360. Converts invalid angle to 0.
