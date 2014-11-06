@@ -25,11 +25,11 @@
       return this.options;
     };
 
-    Angle.prototype.radToDeg = function(angle) {
+    Angle.prototype.fromRad = function(angle) {
       return angle * (180 / Math.PI);
     };
 
-    Angle.prototype.degToRad = function(angle) {
+    Angle.prototype.toRad = function(angle) {
       return angle * (Math.PI / 180);
     };
 
