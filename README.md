@@ -1,4 +1,4 @@
-# Angle JS
+# ![AngleJS](resources/angle-js-logo.png?raw=true)
 
 Simple JavaScript library for working with angles.
 
