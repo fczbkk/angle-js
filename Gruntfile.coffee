@@ -22,25 +22,25 @@ module.exports = (grunt) ->
 
     jasmine:
       default:
-        src: ['build/*.js', '!build/*.min.js']
+        src: ['build/angle.js', '!build/angle.min.js']
         options:
           keepRunner: false
-          specs: 'test/spec/<%= pkg.name %>.spec.js'
+          specs: 'test/spec/*.spec.js'
 
     coffee:
       src:
         files:
-          'build/<%= pkg.name %>.js' : 'src/coffee/*.coffee'
+          'build/angle.js' : 'src/coffee/*.coffee'
       test:
         files:
-          'test/spec/<%= pkg.name %>.spec.js' : 'test/src/*.coffee'
+          'test/spec/angle.spec.js' : 'test/src/*.coffee'
 
     uglify:
       default:
         options:
           banner: "<%= banner %>"
         files:
-          'build/<%= pkg.name %>.min.js' : 'build/<%= pkg.name %>.js'
+          'build/angle.min.js' : 'build/angle.js'
 
     watch:
       options:
@@ -51,9 +51,6 @@ module.exports = (grunt) ->
       test:
         files: ['test/src/*.coffee']
         tasks: ['coffeelint:test', 'coffee:test', 'jasmine']
-
-
-
 
     bump:
       options:
@@ -66,13 +63,18 @@ module.exports = (grunt) ->
         pushTo: 'origin'
 
 
-  grunt.registerTask 'build', [
-    'coffeelint'
-    'coffee'
-    'jasmine'
-    'uglify'
-
-  ]
+  # Constructs the code, runs tests and if everyting is OK, creates a minified
+  # version ready for production. This task is intended to be run manually.
+  grunt.registerTask 'build', 'Bumps version and builds JS.', (version_type) ->
+    version_type = 'patch' unless version_type in ['patch', 'minor', 'major']
+    grunt.task.run [
+      "bump-only:#{version_type}"
+      'coffeelint'
+      'coffee'
+      'jasmine'
+      'uglify'
+      'bump-commit'
+    ]
 
   grunt.registerTask 'default', [
     'watch'
