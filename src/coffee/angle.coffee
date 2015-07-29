@@ -74,5 +74,8 @@ class Angle
 
 
 # Expose object to the global namespace.
-root = if typeof exports is 'object' then exports else this
-root.Angle = Angle
+if expose?
+  expose Angle, 'Angle'
+else
+  root = if typeof exports is 'object' then exports else this
+  root.Angle = Angle

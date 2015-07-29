@@ -7,9 +7,25 @@
       directions: 'right topRight top topLeft left bottomLeft bottom bottomRight'.split(' ')
     };
 
+
+    /**
+      @param {Object=} options
+      @constructor
+     */
+
     function Angle(options) {
+      if (options == null) {
+        options = {};
+      }
       this.setOptions(options);
     }
+
+
+    /**
+     * Sets or updates object options. It only allows to set options that are
+     * defined in `default_options`.
+      @param {Object=} options
+     */
 
     Angle.prototype.setOptions = function(options) {
       var key, val, _ref;
@@ -25,13 +41,31 @@
       return this.options;
     };
 
+
+    /**
+     * convert value from radians to degrees
+      @param {number} angle
+     */
+
     Angle.prototype.fromRad = function(angle) {
       return angle * (180 / Math.PI);
     };
 
+
+    /**
+     * convert value from degrees to radians
+      @param {number} angle
+     */
+
     Angle.prototype.toRad = function(angle) {
       return angle * (Math.PI / 180);
     };
+
+
+    /**
+     * Moves angle into range between 0 and 360. Converts invalid angle to 0.
+      @param {number=} angle
+     */
 
     Angle.prototype.normalize = function(angle) {
       var result;
@@ -46,6 +80,12 @@
       return result;
     };
 
+
+    /**
+     * Converts angle to textual direction.
+      @param {number} angle
+     */
+
     Angle.prototype.toDirection = function(angle) {
       var index;
       angle = this.normalize(angle);
@@ -54,6 +94,12 @@
       index = Math.round(angle / (360 / this.options.directions.length));
       return this.options.directions[index] || this.options.directions[0];
     };
+
+
+    /**
+     * Converts textual direction to angle.
+      @param {string} direction
+     */
 
     Angle.prototype.fromDirection = function(direction) {
       var angle, d, i, index, _i, _len, _ref;
@@ -77,8 +123,11 @@
 
   })();
 
-  root = typeof exports === 'object' ? exports : this;
-
-  root.Angle = Angle;
+  if (typeof expose !== "undefined" && expose !== null) {
+    expose(Angle, 'Angle');
+  } else {
+    root = typeof exports === 'object' ? exports : this;
+    root.Angle = Angle;
+  }
 
 }).call(this);
