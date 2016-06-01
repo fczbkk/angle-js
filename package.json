@@ -23,13 +23,12 @@
     "test": "karma start ./karma.conf.js",
     "dev": "npm run test -- --no-single-run --auto-watch",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "postversion": "git push && git push --tags",
+    "postversion": "git push && git push --tags && npm publish --access=public",
     "version": "npm run build && npm run changelog && git add -A",
     "doc": "documentation readme ./src/index.js -s 'Documentation'",
     "eslint": "eslint ./{src,test}/**/*.js",
     "eslint:build": "npm run eslint -- --max-warnings 0"
   },
-  "private": true,
   "main": "lib/index.js",
   "devDependencies": {
     "babel-cli": "^6.9.0",
