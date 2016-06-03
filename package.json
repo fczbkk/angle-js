@@ -4,7 +4,7 @@
   "description": "Simple JavaScript library for working with angles.",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/fczbkk/angle.git"
+    "url": "git+ssh://git@github.com/fczbkk/angle-js.git"
   },
   "author": {
     "name": "Riki Fridrich",
@@ -13,9 +13,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fczbkk/angle/issues"
+    "url": "https://github.com/fczbkk/angle-js/issues"
   },
-  "homepage": "https://github.com/fczbkk/angle#readme",
+  "homepage": "https://github.com/fczbkk/angle-js#readme",
   "scripts": {
     "cleanup": "rimraf temp lib",
     "prebuild": "npm run test && npm run cleanup && npm run eslint:build",
